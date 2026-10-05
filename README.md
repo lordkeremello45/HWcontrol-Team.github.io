@@ -5,6 +5,14 @@ Official organization website for HWcontrol Team.
 This repository contains the public-facing organization site and project
 information for the HWcontrol Team ecosystem.
 
+## Website
+
+Official HWcontrol Team website: https://lordkeremello45.github.io/HWcontrol-Team.github.io/
+
+Main project: https://github.com/lordkeremello45/HWcontrol2.0
+
+Main project website: https://lordkeremello45.github.io/HWcontrol2.0/
+
 ## Projects
 
 - HWcontrol2.0 — cross-platform hardware monitoring and control
