@@ -8,7 +8,9 @@ interface Props {
 }
 const { title, description, active = "" } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const mainSite = "https://lordkeremello45.github.io/HWcontrol2.0/";
 const nav = [
+  ["HWcontrol2.0", mainSite, "hwcontrol"],
   ["Projects", base + "projects/hwcontrol2/", "projects"],
   ["Security", base + "security/", "security"],
   ["Privacy", base + "privacy/", "privacy"],
@@ -29,7 +31,7 @@ const nav = [
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={base} aria-label="HWcontrol Team home">
+      <a class="brand" href={mainSite} aria-label="HWcontrol2.0 main site">
         <span class="brand-mark">HW</span>
         <span>HWcontrol <strong>Team</strong></span>
       </a>
