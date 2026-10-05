@@ -1,0 +1,16 @@
+# Generated site output
+_site/
+dist/
+build/
+
+# Local tooling
+node_modules/
+.npm/
+.cache/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
