@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="HWcontrol Team" description="Security-first, local-first hardware software from HWcontrol Team.">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">HWcontrol Team</span>
+      <h1>Hardware software, engineered properly.</h1>
+      <p class="lead">Cross-platform hardware control with a security-first architecture, local-first data handling and production-oriented engineering.</p>
+      <div class="actions">
+        <a class="button primary" href={base + "projects/hwcontrol2/"}>Explore HWcontrol2.0</a>
+        <a class="button" href="https://github.com/lordkeremello45/HWcontrol2.0">View source</a>
+      </div>
+    </div>
+    <div class="card">
+      <span class="pill">Production architecture</span>
+      <h2>Built around trust boundaries</h2>
+      <p>Desktop UI, authenticated localhost bridge, native engine and platform hardware APIs remain separated so security and reliability can be tested independently.</p>
+    </div>
+  </section>
+  <section class="grid section">
+    <article class="card"><span class="pill">Local-first</span><h2>Data stays local</h2><p>No intentional unnecessary telemetry, advertising or behavioral tracking.</p></article>
+    <article class="card"><span class="pill">Secure CI/CD</span><h2>Supply-chain aware</h2><p>Dependency scanning, pinned Actions and reproducible build-oriented workflows.</p></article>
+    <article class="card"><span class="pill">Open source</span><h2>Transparent engineering</h2><p>Public source, documentation, issue tracking and security guidance.</p></article>
+  </section>
+</BaseLayout>
