@@ -9,12 +9,14 @@ interface Props {
 const { title, description, active = "" } = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
 const mainSite = "https://lordkeremello45.github.io/HWcontrol2.0/";
+const home = base;
 const nav = [
+  ["Home", home, ""],
   ["HWcontrol2.0", mainSite, "hwcontrol"],
-  ["Features", mainSite + "#features", "features"],
-  ["Security", mainSite + "#security", "security"],
-  ["Privacy", mainSite + "privacy/", "privacy"],
-  ["Download", mainSite + "#download", "download"]
+  ["Projects", base + "projects/hwcontrol2/", "projects"],
+  ["Community", base + "community/", "community"],
+  ["Security", base + "security/", "security"],
+  ["Support", base + "contact/", "contact"]
 ];
 ---
 <!doctype html>
