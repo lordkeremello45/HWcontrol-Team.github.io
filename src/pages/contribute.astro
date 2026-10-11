@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+---
+<BaseLayout title="Test and Contribute | HWcontrol Team" description="Help improve HWcontrol2.0 through reproducible beta testing, documentation, accessibility reviews and code contributions." active="contribute">
+  <header class="page-header"><span class="eyebrow">Independent contributions</span><h1>Help make it dependable.</h1><p class="lead">Useful contributions begin with reproducible evidence. You do not need to submit code to help test a cross-platform hardware application.</p></header>
+  <section class="grid">
+    <article class="card"><h2>Test a release</h2><p>Try a supported package on your real OS and hardware, record what works and what does not, and report the exact version.</p><a class="text-link" href={source + "/releases"}>Browse releases →</a></article>
+    <article class="card"><h2>Report a bug</h2><p>Include clear steps, expected and actual behavior, platform details and sanitized logs. Check for an existing issue first.</p><a class="text-link" href={source + "/issues/new/choose"}>Report an issue →</a></article>
+    <article class="card"><h2>Improve documentation</h2><p>Clarify platform instructions, identify ambiguous safety warnings, test links and suggest fixes for accessibility or translation.</p><a class="text-link" href={source + "/tree/main/docs"}>Read project docs →</a></article>
+  </section>
+  <section class="section prose">
+    <h2>What makes a high-quality report?</h2>
+    <ul><li>One clearly described issue per report where possible.</li><li>Exact application version, OS version and CPU architecture.</li><li>Hardware model and driver/kernel/firmware version when relevant.</li><li>Minimal reproduction steps and a distinction between expected and actual behavior.</li><li>Logs with authentication material, personal paths, serial numbers and private data removed.</li></ul>
+    <h2>Starter tasks</h2>
+    <p>Look for current issues tagged <code>good first issue</code> or <code>help wanted</code>. If none are available, do not invent an assignment: open a discussion in an existing issue or propose a documentation/test improvement with evidence.</p>
+    <p><a href={source + "/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22"}>Browse good-first-issue tasks ↗</a></p>
+    <h2>Contribution expectations</h2>
+    <p>Follow the repository's <a href={source + "/blob/main/CONTRIBUTING.md"}>contribution guide</a> and <a href={source + "/blob/main/SECURITY.md"}>security policy</a>. Do not disclose vulnerabilities publicly, upload credentials, or claim hardware support based on a UI element alone. All contributions must respect the project's license and code-review process.</p>
+    <div class="notice"><p><strong>Transparency:</strong> HWcontrol Team does not buy stars, fabricate users, or manufacture independent endorsements. Community trust must come from real testing, useful contributions and verifiable engineering evidence.</p></div>
+  </section>
+</BaseLayout>
