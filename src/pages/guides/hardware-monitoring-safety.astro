@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+---
+<BaseLayout title="Hardware Monitoring Safety: Sensors, Drivers and Fan Control | HWcontrol Team" description="Learn how to evaluate hardware telemetry, driver limitations, fan-control support and safe testing in desktop monitoring tools." active="guides">
+  <header class="page-header"><span class="eyebrow">Technical guide</span><h1>Hardware monitoring without guesswork.</h1><p class="lead">Sensor values, driver capabilities and control paths are not interchangeable. These checks help users interpret desktop hardware tools safely.</p></header>
+  <div class="prose">
+    <h2>1. A sensor reading is only as good as its source</h2><p>Different CPUs, GPUs, motherboards and firmware expose different sensors. A missing value can mean the hardware or driver does not expose that metric; it does not automatically mean the temperature is zero or that a device is healthy.</p>
+    <h2>2. Monitoring and control are different capabilities</h2><p>Reading a fan speed does not imply that software can change the fan curve. Read-only sensors, vendor-specific interfaces, firmware locks and OS permissions can limit control. A responsible application reports the capability state and keeps unsupported paths disabled.</p>
+    <h2>3. Avoid competing control services</h2><p>Two applications attempting to manage the same fan controller or power profile can overwrite each other's settings. Before testing control features, understand which service currently owns the device and use only one controller at a time.</p>
+    <h2>4. Test incrementally</h2><ul><li>Begin with monitoring-only mode and confirm plausible readings.</li><li>Record hardware model, firmware, OS and driver versions.</li><li>Use documented control ranges only when the device explicitly supports them.</li><li>Stop if temperatures, fan behavior or system stability become abnormal.</li><li>Never bypass safety interlocks to make a control path appear supported.</li></ul>
+    <h2>5. Report enough context to reproduce</h2><p>Include the app version, OS/kernel version, hardware model, driver/firmware versions, steps, expected result and actual result. Redact usernames, serial numbers, tokens and private paths from logs.</p>
+    <div class="notice"><p><strong>For HWcontrol2.0:</strong> the product is beta software. Review its <a href={`${base}product/`}>supported release targets</a>, <a href={`${base}security/`}>security notes</a> and current <a href={source + "/releases"}>release information</a> before testing.</p></div>
+  </div>
+</BaseLayout>
