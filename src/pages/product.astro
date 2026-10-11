@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+const releases = source + "/releases";
+---
+<BaseLayout title="HWcontrol2.0 Product Overview | HWcontrol Team" description="Explore HWcontrol2.0 hardware monitoring, diagnostics, supported control paths, beta release channels, privacy model and platform limitations." active="product">
+  <header class="page-header">
+    <span class="eyebrow">Flagship desktop product</span>
+    <h1>HWcontrol2.0</h1>
+    <p class="lead">An open-source desktop platform for hardware monitoring, diagnostics and supported device control across Windows, macOS and Linux.</p>
+    <div class="actions">
+      <a class="button primary" href={releases}>Open GitHub Releases ↗</a>
+      <a class="button" href={source}>Review source code</a>
+      <a class="button" href={`${base}getting-started/`}>Installation guide</a>
+    </div>
+  </header>
+  <div class="notice"><p><strong>Beta status:</strong> HWcontrol2.0 is still beta software. Read the release notes and check that the expected package assets exist before downloading. Supported controls vary by OS, drivers, firmware and hardware; unsupported paths must remain monitor-only.</p></div>
+  <section class="section grid">
+    <article class="card"><h2>Monitor</h2><p>CPU, memory, storage, GPU and fan telemetry where the operating system and driver expose a reliable source. Temperature history and alerts help users observe changes.</p></article>
+    <article class="card"><h2>Control carefully</h2><p>Profiles and fan-curve workflows are capability-gated. The UI should not imply that a device can be controlled when its backend does not support that operation.</p></article>
+    <article class="card"><h2>Diagnose locally</h2><p>Local diagnostics, health states and exportable reports are designed to help investigate issues without requiring routine behavioral tracking.</p></article>
+  </section>
+  <section class="section">
+    <div class="section-heading"><span class="eyebrow">Release targets</span><h2>Choose the correct platform</h2><p class="muted">These are intended beta targets; the current release page is the source of truth for available artifacts.</p></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Platform</th><th>Target</th><th>Expected packages</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Windows</td><td>Windows 10/11, x64</td><td>Guided EXE, MSI, MSIX, portable ZIP</td><td>Use the guided installer for typical installations.</td></tr>
+        <tr><td>macOS</td><td>macOS 14+, Apple Silicon</td><td>PKG, DMG containing .app</td><td>Intel macOS is not currently a shipped target.</td></tr>
+        <tr><td>Linux</td><td>Debian/Ubuntu-family, x64</td><td>DEB, TAR.GZ, TAR.ZST</td><td>Hardware access depends on kernel, drivers and permissions.</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+  <section class="section split-section">
+    <div><span class="eyebrow">Trust boundaries</span><h2>Local-first by design</h2><p class="muted">The dashboard communicates with an authenticated localhost Go bridge, which mediates access to a native C++ engine and platform-specific APIs. The bridge is a security boundary, not a reason to assume every OS or hardware path is equally supported.</p><a class="text-link" href={`${base}security/`}>Read security notes →</a></div>
+    <div class="card"><h3>Before installing</h3><ul class="compact-list"><li>Read the release notes and known limitations.</li><li>Verify SHA-256 files when published with the release.</li><li>Remember that a checksum is not publisher signing.</li><li>Back up important data before testing beta hardware-control software.</li><li>Report reproducible issues with secrets removed from logs.</li></ul></div>
+  </section>
+</BaseLayout>
