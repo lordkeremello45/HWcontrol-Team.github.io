@@ -28,14 +28,13 @@ jobs:
         with:
           node-version: 24.15.0
       - name: Install dependencies
-        working-directory: .
         run: npm install --ignore-scripts --no-audit --no-fund
       - name: Audit dependency tree
-        working-directory: .
         run: npm audit --audit-level=high
       - name: Build Astro site
-        working-directory: .
         run: npm run build
+      - name: Validate built site
+        run: npm run check:site
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - name: Upload Pages artifact
