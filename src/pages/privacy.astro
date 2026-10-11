@@ -1,0 +1,15 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+---
+<BaseLayout title="Privacy | HWcontrol Team" description="Understand HWcontrol2.0's local-first telemetry model, explicit diagnostic sharing and limits of privacy claims.">
+  <header class="page-header"><span class="eyebrow">Privacy</span><h1>Local-first, without overpromising.</h1><p class="lead">The application is designed to keep routine hardware telemetry on the user's device. Optional sharing and third-party platform behavior must be considered separately.</p></header>
+  <div class="prose">
+    <h2>Routine hardware data</h2><p>CPU/GPU readings, temperatures, memory and storage metrics, fan state and related diagnostic information are intended to be processed locally. HWcontrol2.0 does not intentionally collect or transmit unnecessary usage analytics, advertising identifiers or behavioral tracking data.</p>
+    <h2>Network activity</h2><p>Update checking may contact the configured GitHub release infrastructure over HTTPS. This is separate from uploading hardware telemetry. Users should review the source and release documentation for the behavior of the exact version they install.</p>
+    <h2>Diagnostic exports</h2><p>Logs and diagnostic bundles can contain usernames, local file paths, device identifiers, hardware details or other sensitive information. Inspect and redact a bundle before sharing it. Do not include passwords, API keys, bridge keys, private keys or signing credentials in a public issue or email.</p>
+    <h2>Optional remote diagnostics</h2><p>Do not assume that an optional gateway or future diagnostic service is enabled by default. Review the exact feature's consent prompt, data fields, retention policy and destination before opting in.</p>
+    <h2>Limits</h2><p>This project-level privacy description does not mean the operating system, drivers, GitHub, email provider or other software on the computer collect no data. Local-first design is not a substitute for reviewing the source and network behavior of the version you use.</p>
+    <p>For implementation details, see the <a href={source + "/blob/main/SECURITY.md"}>security policy</a> and <a href={source}>source repository</a>. Questions can be sent to <a href="mailto:hwcontrolteam@outlook.com">hwcontrolteam@outlook.com</a>.</p>
+  </div>
+</BaseLayout>
