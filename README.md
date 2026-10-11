@@ -1,36 +1,46 @@
 # HWcontrol Team
 
-Official organization website for HWcontrol Team.
+Official organization and product-discovery website for HWcontrol Team. This repository contains the public-facing Astro site; the desktop application itself lives in the [HWcontrol2.0 repository](https://github.com/lordkeremello45/HWcontrol2.0).
 
-This repository contains the public-facing organization site and project
-information for the HWcontrol Team ecosystem.
+## Live destinations
 
-## Website
+- Team website: https://lordkeremello45.github.io/HWcontrol-Team.github.io/
+- Product overview: https://lordkeremello45.github.io/HWcontrol-Team.github.io/product/
+- Getting started: https://lordkeremello45.github.io/HWcontrol-Team.github.io/getting-started/
+- Testing and contributions: https://lordkeremello45.github.io/HWcontrol-Team.github.io/contribute/
+- Privacy: https://lordkeremello45.github.io/HWcontrol-Team.github.io/privacy/
+- Security: https://lordkeremello45.github.io/HWcontrol-Team.github.io/security/
+- HWcontrol2.0 website: https://lordkeremello45.github.io/HWcontrol2.0/
+- Source and releases: https://github.com/lordkeremello45/HWcontrol2.0/releases
 
-Official HWcontrol Team website: https://lordkeremello45.github.io/HWcontrol-Team.github.io/
+## Purpose
 
-Main project: https://github.com/lordkeremello45/HWcontrol2.0
-
-Main project website: https://lordkeremello45.github.io/HWcontrol2.0/
-
-## Projects
-
-- HWcontrol2.0 — cross-platform hardware monitoring and control
-- HWcontrol2.0 Crash Gateway — optional privacy-preserving crash diagnostics infrastructure
+The website helps users understand what the product does, choose a supported release, install it cautiously, report reproducible problems and contribute without requiring social-media accounts.
 
 ## Principles
 
-- Security-first engineering
-- Local-first application design
-- Transparent documentation
-- No intentional unnecessary telemetry
-- Open-source development
+- Security-first engineering and explicit hardware capability reporting.
+- Local-first application behavior and no intentional unnecessary telemetry.
+- Accurate beta status, package availability and signing claims.
+- Accessible, responsive pages with useful technical documentation.
+- Organic discovery through search-friendly content, open documentation and real contributions; no bought engagement or fabricated endorsements.
 
-## Deployment
+## Development
 
-The repository is intended for GitHub Pages at:
+Requirements: Node.js 24 and npm.
 
-`https://lordkeremello45.github.io/HWcontrol-Team.github.io/`
+From the repository root:
+
+- Install dependencies: `npm install`
+- Build static pages: `npm run build`
+- Check expected routes, metadata, internal links, robots.txt and sitemap.xml: `npm run check:site`
+- Preview the built site: `npm run preview`
+
+The GitHub Pages workflow runs the build and site checks before deployment. The build result and live deployment still need to be verified in GitHub Actions after changes.
+
+## Discovery plan
+
+See [docs/ORGANIC-DISCOVERY.md](docs/ORGANIC-DISCOVERY.md) for the social-media-free plan, catalog-submission readiness and privacy-conscious measurement. Search Console configuration, external catalog acceptance and independent adoption are not claimed as complete.
 
 ## License
 
