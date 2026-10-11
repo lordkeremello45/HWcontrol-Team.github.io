@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+const releases = source + "/releases";
+---
+<BaseLayout title="Getting Started with HWcontrol2.0 | HWcontrol Team" description="Practical steps to choose a HWcontrol2.0 beta package, inspect release assets, install safely and submit useful bug reports.">
+  <header class="page-header"><span class="eyebrow">User guide</span><h1>Getting started</h1><p class="lead">A careful first run starts with the right package, clear expectations and a way to report what happened.</p></header>
+  <div class="notice"><p><strong>Beta software:</strong> save your work and avoid testing hardware-control features on critical systems. The app may only monitor some devices, and availability depends on the exact OS, driver and hardware.</p></div>
+  <div class="prose">
+    <h2>1. Select a release</h2>
+    <p>Open the <a href={releases}>official GitHub Releases page</a> and select the platform-specific beta release. Do not rely on an old direct link or assume an artifact exists because a release tag exists.</p>
+    <ul><li>Windows: choose the guided EXE for a typical install; MSI and MSIX are alternative deployment formats, and portable ZIP is for supported portable use.</li><li>macOS: choose the Apple Silicon package for macOS 14+.</li><li>Linux: choose the DEB for a compatible Debian/Ubuntu-family system or a portable TAR package when appropriate.</li></ul>
+    <h2>2. Check release integrity</h2>
+    <p>If a release includes a SHA-256 manifest, calculate the digest of the downloaded file with a trusted local tool and compare it to the manifest. A matching digest confirms that the file matches the published digest; it does not prove who signed the file. Do not treat unsigned packages as publisher-signed.</p>
+    <h2>3. Install and start</h2>
+    <p>Follow the package-specific instructions included with the release. If installation requires permissions, review what is being installed and why. Do not disable operating-system security controls just to force an installer to run.</p>
+    <h2>4. Confirm hardware support</h2>
+    <p>Start with monitoring and inspect the reported capability state. A visible fan curve, profile or control panel is not proof that a particular hardware backend can apply changes. Do not force unsupported control operations or bypass safety checks.</p>
+    <h2>5. Report a problem</h2>
+    <p>Search existing <a href={source + "/issues"}>issues</a> first. A useful report includes:</p>
+    <ul><li>OS version, architecture and HWcontrol2.0 release/tag;</li><li>CPU, GPU, motherboard/laptop model and driver/firmware details when relevant;</li><li>expected behavior, actual behavior and repeatable steps;</li><li>relevant logs after removing usernames, tokens, keys, serial numbers and other private data.</li></ul>
+    <p><a href={source + "/issues/new/choose"}>Open the issue reporting page ↗</a></p>
+    <h2>If the download is missing</h2>
+    <p>Check the release's asset list and the related GitHub Actions run. If the expected package is absent, use another verified release only if its compatibility is clear; otherwise report the missing artifact instead of downloading an unrelated build.</p>
+  </div>
+</BaseLayout>
