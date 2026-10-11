@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+---
+<BaseLayout title="Linux Fan Control: Safe Troubleshooting Checklist | HWcontrol Team" description="A cautious Linux fan-control checklist covering kernel sensor exposure, permissions, conflicting services and reproducible diagnostics." active="guides">
+  <header class="page-header"><span class="eyebrow">Linux guide</span><h1>Before changing fan control on Linux.</h1><p class="lead">Fan control depends on kernel drivers, firmware and device-specific interfaces. A generic command or application cannot safely support every laptop and motherboard.</p></header>
+  <div class="notice"><p><strong>Safety note:</strong> do not write arbitrary values to hardware-control files, unload vendor drivers, or disable thermal safeguards to force a fan setting. If your hardware path is unsupported, use monitoring-only behavior.</p></div>
+  <div class="prose">
+    <h2>1. Record the environment</h2><p>Collect your distribution and release, kernel version, CPU/laptop/motherboard model, firmware version and relevant driver information. These details are more useful than reporting only that “fan control does not work.”</p>
+    <h2>2. Check what the system actually exposes</h2><p>Linux sensor interfaces vary by driver and hardware. A fan reading or PWM control node may not exist for your system, may be firmware-managed, or may be intentionally read-only. Absence of a writable control interface should not be worked around by writing to unrelated paths.</p>
+    <h2>3. Look for conflicting controllers</h2><p>Vendor utilities, firmware services and third-party fan tools may compete for control. Identify the current controller before enabling another application. Avoid running two control loops against the same device.</p>
+    <h2>4. Keep privileges narrow</h2><p>Grant only the permissions required by the documented backend. Do not run the entire desktop UI as root simply because a hardware interface requires elevated access. Prefer a narrowly scoped, documented service or supported OS mechanism.</p>
+    <h2>5. File a reproducible report</h2><p>Include the exact distribution/kernel, device model, driver, app version, detected capability state and sanitized logs. Explain whether monitoring works while control is unavailable.</p>
+    <p>For HWcontrol2.0, see the <a href={`${base}getting-started/`}>getting-started guide</a>, <a href={`${base}product/`}>platform targets</a> and <a href={source + "/issues/new/choose"}>issue reporting page</a>.</p>
+  </div>
+</BaseLayout>
