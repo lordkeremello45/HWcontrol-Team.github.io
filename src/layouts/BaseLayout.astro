@@ -10,9 +10,12 @@ const { title, description, active = "" } = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
 const mainSite = "https://lordkeremello45.github.io/HWcontrol2.0/";
 const home = base;
+const canonicalUrl = new URL(`${base}${Astro.url.pathname.replace(/^\/+/, "")}`, "https://lordkeremello45.github.io").href;
 const nav = [
   ["Home", home, ""],
-  ["HWcontrol2.0", mainSite, "hwcontrol"],
+  ["Product", `${base}product/`, "product"],
+  ["Guides", `${base}guides/hardware-monitoring-safety/`, "guides"],
+  ["Contribute", `${base}contribute/`, "contribute"],
   ["Source", "https://github.com/lordkeremello45/HWcontrol2.0", "source"],
   ["Support", "mailto:hwcontrolteam@outlook.com", "support"]
 ];
@@ -21,31 +24,48 @@ const nav = [
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#070a10" />
+    <meta name="theme-color" content="#080c12" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self'; upgrade-insecure-requests" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; font-src 'self'; upgrade-insecure-requests" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" type="application/xml" href={`${base}sitemap.xml`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HWcontrol Team" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
       <a class="brand" href={home} aria-label="HWcontrol Team home">
-        <span class="brand-mark">HW</span>
+        <span class="brand-mark" aria-hidden="true">HW</span>
         <span>HWcontrol <strong>Team</strong></span>
       </a>
       <nav aria-label="Primary navigation">
         {nav.map(([label, href, key]) => (
-          <a class:list={{ active: active === key }} href={href}>{label}</a>
+          <a class:list={{ active: active === key }} aria-current={active === key ? "page" : undefined} href={href}>{label}</a>
         ))}
       </nav>
     </header>
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <footer class="site-footer">
-      <span>HWcontrol Team</span>
-      <span>Security-first · Local-first · Open source</span>
+      <div>
+        <strong>HWcontrol Team</strong>
+        <p>Security-first · Local-first · Open source</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href={`${base}product/`}>Product</a>
+        <a href={`${base}privacy/`}>Privacy</a>
+        <a href={`${base}security/`}>Security</a>
+        <a href="https://github.com/lordkeremello45/HWcontrol2.0">Source code</a>
+      </nav>
     </footer>
   </body>
 </html>
