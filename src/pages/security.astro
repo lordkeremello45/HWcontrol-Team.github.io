@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const source = "https://github.com/lordkeremello45/HWcontrol2.0";
+---
+<BaseLayout title="Security and Release Integrity | HWcontrol Team" description="Read HWcontrol2.0's security model, safe vulnerability reporting path, beta limitations and release integrity guidance.">
+  <header class="page-header"><span class="eyebrow">Security</span><h1>Security is a process, not a badge.</h1><p class="lead">The project documents its trust boundaries and validation goals, but no single control guarantees that an application or hardware driver is secure.</p></header>
+  <div class="prose">
+    <h2>Architecture and trust boundaries</h2><p>The desktop dashboard communicates with a local Go bridge, which mediates requests to the native engine and platform hardware APIs. Authentication, request validation, replay protection and fail-closed behavior are intended to reduce risk; they do not protect a computer already compromised at administrator/root level.</p>
+    <h2>Release integrity</h2><p>When supplied, SHA-256 manifests help detect changes relative to the published digest. GitHub attestations can provide build provenance where configured. Neither a checksum nor an attestation is the same as operating-system-trusted publisher signing. Do not infer Authenticode, Apple Developer ID or notarization status unless the release explicitly provides verifiable evidence.</p>
+    <h2>Report a vulnerability privately</h2><p>Please do not publish exploit details or secrets in a public issue. Use GitHub's private vulnerability reporting mechanism if it is enabled for the repository, or email <a href="mailto:hwcontrolteam@outlook.com">hwcontrolteam@outlook.com</a> with a concise description and a safe way to reproduce the issue. Avoid attaching live credentials or personal data.</p>
+    <p><a href={source + "/blob/main/SECURITY.md"}>Read the full security policy ↗</a></p>
+    <h2>Beta safety</h2><ul><li>Hardware control varies by device, OS, driver and firmware.</li><li>Use monitoring-only behavior when control support is unavailable.</li><li>Do not bypass platform permissions or safety checks to force control.</li><li>Back up important data and report reproducible failures with sanitized logs.</li></ul>
+  </div>
+</BaseLayout>
