@@ -36,8 +36,8 @@ for (const relative of requiredPages) {
   if (!/<html\b[^>]*\blang="en"/i.test(html)) fail(`${relative} is missing its English document language.`);
   if (!/<title>[^<]+<\/title>/i.test(html)) fail(`${relative} is missing a page title.`);
   if (!/<meta\s+name="description"\s+content="[^"]+"/i.test(html)) fail(`${relative} is missing a meta description.`);
-  const canonical = html.match(/<link\\s+rel="canonical"\\s+href="([^"]+)"/i)?.[1];
-  const route = relative === "index.html" ? "" : relative.replace(/index\\.html$/, "");
+  const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1];
+  const route = relative === "index.html" ? "" : relative.replace(/index\.html$/, "");
   const expectedCanonical = `${siteOrigin}${basePrefix}${route}`;
   if (canonical !== expectedCanonical) fail(`${relative} canonical URL mismatch: expected ${expectedCanonical}, got ${canonical || "missing"}.`);
 }
