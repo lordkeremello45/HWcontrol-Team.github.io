@@ -3,8 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL;
 const source = "https://github.com/lordkeremello45/HWcontrol2.0";
 const releases = source + "/releases";
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "HWcontrol2.0",
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Windows 10/11 (x64), macOS 14+ (Apple Silicon), Debian/Ubuntu-family Linux (x64; hardware access varies)",
+  description: "Open-source beta desktop software for hardware monitoring, diagnostics and capability-gated device control. Availability and device support depend on the operating system, drivers, firmware and hardware.",
+  softwareVersion: "Beta",
+  license: "https://www.gnu.org/licenses/gpl-3.0.html",
+  url: "https://lordkeremello45.github.io/HWcontrol2.0/",
+  downloadUrl: releases,
+  codeRepository: source,
+  isAccessibleForFree: true
+};
 ---
 <BaseLayout title="HWcontrol2.0 Product Overview | HWcontrol Team" description="Explore HWcontrol2.0 hardware monitoring, diagnostics, supported control paths, beta release channels, privacy model and platform limitations." active="product">
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <header class="page-header">
     <span class="eyebrow">Flagship desktop product</span>
     <h1>HWcontrol2.0</h1>
