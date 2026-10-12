@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
 const source = "https://github.com/lordkeremello45/HWcontrol2.0";
 ---
 <BaseLayout title="Linux Fan Control: Safe Troubleshooting Checklist | HWcontrol Team" description="A cautious Linux fan-control checklist covering kernel sensor exposure, permissions, conflicting services and reproducible diagnostics." active="guides">

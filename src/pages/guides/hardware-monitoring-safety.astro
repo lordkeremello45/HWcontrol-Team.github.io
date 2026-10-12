@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith("/") ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + "/";
 const source = "https://github.com/lordkeremello45/HWcontrol2.0";
 ---
 <BaseLayout title="Hardware Monitoring Safety: Sensors, Drivers and Fan Control | HWcontrol Team" description="Learn how to evaluate hardware telemetry, driver limitations, fan-control support and safe testing in desktop monitoring tools." active="guides">
