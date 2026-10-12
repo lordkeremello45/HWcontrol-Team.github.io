@@ -10,10 +10,10 @@ permissions:
   pages: write
   id-token: write
 
-# A newer commit supersedes an older pending build/deployment. This prevents
-# an environment approval wait from blocking the current site revision.
+# A newer commit supersedes stale pending or waiting deployments.
+# Keep one shared group so old queued runs cannot deploy an outdated site later.
 concurrency:
-  group: pages-${{ github.ref }}
+  group: pages
   cancel-in-progress: true
 
 jobs:
